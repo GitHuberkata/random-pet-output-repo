@@ -1,4 +1,4 @@
-erraform {
+terraform {
 
   cloud {
     organization = "petya-business-org"
@@ -19,7 +19,9 @@ erraform {
 provider "random" {
 }
 
-variable "check" {}
+variable "check" {
+default = "yes"
+}
 
 resource "random_pet" "server" {
   keepers = {
