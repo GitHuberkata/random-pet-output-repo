@@ -1,14 +1,16 @@
+
+# The code creates state on the TFC and generates random_pet name which is provided in the output
 terraform {
 
-  cloud {
+ backend "remote" {
     organization = "petya-business-org"
 
     workspaces {
-      name = "state-remote-random-pet"
+      name = "state-remote-random-pet2"
     }
   }
 
-  required_providers {
+required_providers {
     random = {
       source  = "hashicorp/random"
       version = "3.4.3"
@@ -19,13 +21,11 @@ terraform {
 provider "random" {
 }
 
-variable "check" {
-default = "yes"
-}
-
 resource "random_pet" "server" {
   keepers = {
-    # Generates a new pet name on each apply
-    value = var.check  
   }
+}
+
+output "value" {
+  value = random_pet.server.id
 }
