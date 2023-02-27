@@ -1,4 +1,4 @@
-erraform {
+terraform {
 
   cloud {
     organization = "petya-business-org"
