@@ -25,7 +25,3 @@ resource "random_pet" "server" {
   keepers = {
   }
 }
-
-output "value" {
-  value = random_pet.server.id
-}
